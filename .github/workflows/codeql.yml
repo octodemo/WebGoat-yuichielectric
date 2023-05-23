@@ -88,14 +88,10 @@ jobs:
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
-
-    - run: |
-        pwd
-        ls -l
-        echo ${{ github.workspace }}
+        output: ./codeql-results
 
     - name: Save SARIF files as artifacts
       uses: actions/upload-artifact@v3
       with:
         name: codeql-results
-        path: '../results'
+        path: ./codeql-results
