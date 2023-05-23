@@ -71,6 +71,7 @@ jobs:
     # Autobuild attempts to build any compiled languages  (C/C++, C#, Go, or Java).
     # If this step fails, then you should remove it and run the build manually (see below)
     -   name: Build with Maven
+        if : ${{ matrix.language == 'java' }}
         run: mvn --no-transfer-progress verify    
 
     # ℹ️ Command-line programs to run using the OS shell.
@@ -84,7 +85,6 @@ jobs:
     #     ./location_of_script_within_repo/buildscript.sh
 
     - name: Perform CodeQL Analysis
-      if : ${{ matrix.language == 'java' }}
       uses: github/codeql-action/analyze@v2
       with:
         category: "/language:${{matrix.language}}"
