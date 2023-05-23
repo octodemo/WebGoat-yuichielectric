@@ -91,4 +91,4 @@ jobs:
     - name: Upload SARIF results
       uses: actions/upload-artifact@v3
       with:
-        sarif_file: results/*.sarif
+        path: results/*.sarif
