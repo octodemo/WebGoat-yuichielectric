@@ -91,4 +91,4 @@ jobs:
     - name: Upload SARIF results
       uses: actions/upload-artifact@v3
       with:
-        path: results/
+        path: ${{ vars.GITHUB_WORKSPACE	}}/results/*.sarif
